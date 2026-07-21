@@ -3,31 +3,36 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Action Inbox | Prototype</title>
+<title>Action Inbox</title>
 <link rel="stylesheet" href="styles.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.4.168/pdf.min.mjs" type="module"></script>
 </head>
 <body>
 <div class="app">
   <header>
     <div>
-      <div class="eyebrow">WORLD PAIN MINING — MVP PROTOTYPE</div>
+      <div class="eyebrow">WORLD PAIN MINING — MVP v2</div>
       <h1>Action Inbox</h1>
-      <p>届いた文書を「読むもの」から「次にやること」へ。</p>
+      <p>紙・メール・PDF・画像を「次にやること」へ。</p>
     </div>
-    <button id="sampleBtn" class="secondary">サンプルを入れる</button>
+    <button id="sampleBtn" class="secondary">サンプル</button>
   </header>
 
   <main>
-    <section class="card input-card">
+    <section class="card">
       <h2>1. 文書を入れる</h2>
-      <p class="muted">メール、学校・行政のお知らせ、請求、案内文などの本文を貼り付けてください。</p>
-      <textarea id="sourceText" placeholder="ここに文書本文を貼り付け…"></textarea>
-      <div class="file-row">
-        <label class="file-label">ファイルを選択
-          <input id="fileInput" type="file" accept=".txt,.md,.csv,.json,image/*,.pdf">
-        </label>
-        <span id="fileName" class="muted">未選択</span>
-      </div>
+      <p class="muted">PDF・画像・テキストファイルを選ぶか、本文を貼り付けてください。</p>
+
+      <label class="drop">
+        <input id="fileInput" type="file" accept=".pdf,.txt,.md,.csv,.json,image/*">
+        <span class="drop-title">ファイルを選択</span>
+        <span id="fileName" class="muted">PDF / 画像 / テキスト対応</span>
+      </label>
+
+      <div id="status" class="status hidden"></div>
+
+      <textarea id="sourceText" placeholder="または、ここに文書本文を貼り付け…"></textarea>
+
       <button id="analyzeBtn" class="primary">やることに変換</button>
     </section>
 
@@ -49,18 +54,9 @@
       <div id="actions" class="actions"></div>
 
       <div class="grid">
-        <div class="mini-card">
-          <h3>期限・日付</h3>
-          <div id="dates"></div>
-        </div>
-        <div class="mini-card">
-          <h3>金額</h3>
-          <div id="money"></div>
-        </div>
-        <div class="mini-card">
-          <h3>連絡・提出先候補</h3>
-          <div id="contacts"></div>
-        </div>
+        <div class="mini-card"><h3>期限・日付</h3><div id="dates"></div></div>
+        <div class="mini-card"><h3>金額</h3><div id="money"></div></div>
+        <div class="mini-card"><h3>連絡先</h3><div id="contacts"></div></div>
       </div>
 
       <div class="decision">
@@ -71,6 +67,8 @@
     </section>
   </main>
 </div>
-<script src="app.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+<script type="module" src="app.js"></script>
 </body>
 </html>

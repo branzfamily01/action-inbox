@@ -1,0 +1,16 @@
+
+:root{--bg:#f4f1ea;--paper:#fffdf8;--ink:#25231f;--sub:#777166;--line:#ded8cc;--accent:#25231f}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif}
+.app{max-width:900px;margin:auto;padding:28px 18px 70px}header{display:flex;justify-content:space-between;gap:20px;align-items:end;margin:18px 0 28px}
+h1{font-size:clamp(38px,8vw,72px);margin:3px 0;letter-spacing:-.05em}p{line-height:1.7}.eyebrow{font-size:11px;letter-spacing:.14em;color:var(--sub);font-weight:700}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:24px;box-shadow:0 10px 35px rgba(40,35,25,.05);margin-bottom:18px}
+textarea{width:100%;min-height:190px;border:1px solid var(--line);border-radius:14px;padding:16px;font:inherit;line-height:1.7;background:white;resize:vertical}
+button,.drop{border:0;border-radius:999px;padding:13px 18px;font-weight:700;cursor:pointer;font-size:14px}.primary{background:var(--accent);color:white;width:100%;margin-top:14px}
+.secondary{background:#ebe6dc;color:var(--ink)}.muted{color:var(--sub);font-size:14px}.hidden{display:none}
+.drop{display:flex;flex-direction:column;align-items:center;justify-content:center;border:2px dashed var(--line);border-radius:18px;padding:26px;margin:14px 0;background:#faf8f3}
+.drop input{display:none}.drop-title{font-size:16px;margin-bottom:6px}.status{margin:10px 0 14px;padding:12px 14px;background:#eee8dd;border-radius:12px;font-size:14px}
+.result-head{display:flex;justify-content:space-between;gap:12px}.badge{height:max-content;background:#eee8dd;border-radius:999px;padding:8px 12px;font-size:12px;font-weight:700}.badge.high{background:#f3d7cf;color:#7d2e1d}
+.summary-box,.decision{background:#f0ece3;border-radius:16px;padding:16px;margin:18px 0}.summary-box h3,.decision h3{margin:0 0 6px}.summary-box p,.decision p{margin:0}
+.actions{display:grid;gap:10px}.action{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line);border-radius:14px;padding:14px;background:white}.action input{margin-top:5px;transform:scale(1.2)}.action strong{display:block}.action small{color:var(--sub)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:20px 0}.mini-card{border:1px solid var(--line);border-radius:14px;padding:14px}.mini-card h3{font-size:13px;color:var(--sub);margin-top:0}.mini-card div{font-weight:700;line-height:1.6}
+@media(max-width:650px){header{align-items:flex-start;flex-direction:column}.grid{grid-template-columns:1fr}.card{padding:18px}}
