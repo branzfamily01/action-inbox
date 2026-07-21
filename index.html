@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Action Inbox | Prototype</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+  <header>
+    <div>
+      <div class="eyebrow">WORLD PAIN MINING — MVP PROTOTYPE</div>
+      <h1>Action Inbox</h1>
+      <p>届いた文書を「読むもの」から「次にやること」へ。</p>
+    </div>
+    <button id="sampleBtn" class="secondary">サンプルを入れる</button>
+  </header>
+
+  <main>
+    <section class="card input-card">
+      <h2>1. 文書を入れる</h2>
+      <p class="muted">メール、学校・行政のお知らせ、請求、案内文などの本文を貼り付けてください。</p>
+      <textarea id="sourceText" placeholder="ここに文書本文を貼り付け…"></textarea>
+      <div class="file-row">
+        <label class="file-label">ファイルを選択
+          <input id="fileInput" type="file" accept=".txt,.md,.csv,.json,image/*,.pdf">
+        </label>
+        <span id="fileName" class="muted">未選択</span>
+      </div>
+      <button id="analyzeBtn" class="primary">やることに変換</button>
+    </section>
+
+    <section id="result" class="card hidden">
+      <div class="result-head">
+        <div>
+          <div class="eyebrow">ACTION VIEW</div>
+          <h2 id="docTitle">文書の要点</h2>
+        </div>
+        <span id="urgencyBadge" class="badge">通常</span>
+      </div>
+
+      <div class="summary-box">
+        <h3>一言でいうと</h3>
+        <p id="summary"></p>
+      </div>
+
+      <h3>あなたが次にやること</h3>
+      <div id="actions" class="actions"></div>
+
+      <div class="grid">
+        <div class="mini-card">
+          <h3>期限・日付</h3>
+          <div id="dates"></div>
+        </div>
+        <div class="mini-card">
+          <h3>金額</h3>
+          <div id="money"></div>
+        </div>
+        <div class="mini-card">
+          <h3>連絡・提出先候補</h3>
+          <div id="contacts"></div>
+        </div>
+      </div>
+
+      <div class="decision">
+        <h3>見落とすとどうなる？</h3>
+        <p id="risk"></p>
+      </div>
+      <button id="copyBtn" class="secondary">アクション一覧をコピー</button>
+    </section>
+  </main>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
